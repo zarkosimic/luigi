@@ -37,7 +37,9 @@
               {/if}
               <BadgeCounter {node}/>
             </div>
-            <div class="fd-product-switch__text">
+            <div
+              class="{productSwitcher == 'false' ? 'fd-product-switch__text test' : 'fd-product-switch__text' }"
+            >
               <div class="fd-product-switch__title">{getNodeLabel(node)}</div>
               {#if getNodeSubtitle(node)}
               <div class="fd-product-switch__subtitle">{getNodeSubtitle(node)}</div>
@@ -64,6 +66,7 @@
   export let hasOpenUIicon;
   export let getNodeLabel;
   export let getNodeSubtitle;
+  export let productSwitcher;
 
   // [svelte-upgrade suggestion]
   // review these functions and remove unnecessary 'export' keywords
@@ -76,6 +79,9 @@
   $topNavHeight: 48px;
   $mobileTopNavHeight: 64px;
 
+  .test {
+    padding-top: 10px;
+  }
   .y-fd-modal--full-screen {
     z-index: 1000;
     position: fixed;
